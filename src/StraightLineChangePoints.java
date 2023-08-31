@@ -2,35 +2,47 @@ import java.awt.Graphics;
 import java.awt.Color;
 
 
-public class StraightLine   {
+public class StraightLineChangePoints   {
 
   // The line `private Graphics g;` is declaring a private instance variable `g` of type `Graphics`.
   private Graphics g;
 
-  // The `public StraightLine(Graphics g)` is a constructor for the `StraightLine` class. It takes a
+  // The `public StraightLinB(Graphics g)` is a constructor for the `StraightLinB` class. It takes a
   // `Graphics` object as a parameter and assigns it to the instance variable `g`. This allows the
-  // `StraightLine` object to have access to the `Graphics` object and use it to draw lines on a
+  // `StraightLinB` object to have access to the `Graphics` object and use it to draw lines on a
   // graphical component.
-  public StraightLine(Graphics g) {
+  public StraightLineChangePoints(Graphics g) {
     this.g = g; 
   }
 
 
   public float getM(int x1, int y1, int x2, int y2) {
-    return (float)(y2 - y1) / (x2 - x1);
+    if ((float)(y2 - y1) / (x2 - x1) > 1) {
+      return (float)(x2 - x1) / (y2 - y1);
+    } else {
+      return (float)(y2 - y1) / (x2 - x1);
+    }
   }
 
   public float getB(int x1, int y1, int x2, int y2) {
-    return y1 - getM(x1, y1, x2, y2) * x1;
+    if ((float)(y2 - y1) / (x2 - x1) > 1) {
+      return x1 - getM(x1, y1, x2, y2) * y1;
+    } else {
+      return y1 - getM(x1, y1, x2, y2) * x1;
+    }
   }
 
 
-  public float getY(int x, int x1, int y1, int x2, int y2) {
+  public float getB(int x, int x1, int y1, int x2, int y2) {
     return getM(x1, y1, x2, y2) * x + getB(x1, y1, x2, y2);
   }
 
   public float getX(int y, int x1, int y1, int x2, int y2) {
     return (y - getB(x1, y1, x2, y2)) / getM(x1, y1, x2, y2);
+  }
+
+  public float getY(int x, int x1, int y1, int x2, int y2) {
+    return getM(x1, y1, x2, y2) * x + getB(x1, y1, x2, y2);
   }
 
   
@@ -40,14 +52,14 @@ public class StraightLine   {
   private void drawIntermediatePoints (int x1, int y1, int x2, int y2, float m, float b) {
     // Draw intermediate points
     for(int x = x1; x <= x2; x++) {
-      // Calculate and round y
-      float y = getY(x, x1, y1, x2, y2);
-      int roundedY = Math.round(y);
-
-      // set color
-      g.setColor(Color.PINK);
-      // Draw point
-      g.drawLine(x, roundedY, x, roundedY);
+    
+        float y = getY(x, x1, y1, x2, y2);
+        int roundedY = Math.round(y);
+  
+        // set color
+        g.setColor(Color.PINK);
+        // Draw point
+        g.drawLine(x, roundedY, x, roundedY);
     }
   }
   /**
