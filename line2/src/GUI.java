@@ -31,11 +31,6 @@ class GUI extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
-        int x1 = (int) lineaRecta.startPoint.x;
-        int y1 = (int) (lineaRecta.m * lineaRecta.startPoint.x + lineaRecta.b);
-        int x2 = (int) lineaRecta.endPoint.x;
-        int y2 = (int) (lineaRecta.m * lineaRecta.endPoint.x + lineaRecta.b);
-
         g2d.setColor(Color.RED);
         for (Point point : selectedPoints) {
             // subtract  600 to point.y because the origin of the screen is at the top left corner
