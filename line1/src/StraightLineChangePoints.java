@@ -59,6 +59,8 @@ public class StraightLineChangePoints   {
         // set color
         g.setColor(Color.PINK);
         // Draw point
+
+        System.out.println("x: " + x + " y: " + roundedY);
         g.drawLine(x, roundedY, x, roundedY);
     }
   }

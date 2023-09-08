@@ -33,6 +33,7 @@ public class StraightLine   {
     return (y - getB(x1, y1, x2, y2)) / getM(x1, y1, x2, y2);
   }
 
+
   
 
   
