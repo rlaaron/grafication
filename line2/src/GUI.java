@@ -14,13 +14,14 @@ class GUI extends JPanel {
     }
 
     private void evaluateCandidatePoints() {
-        for (int x = -100; x <= 100; x++) {
-            for (int y = -100; y <= 100; y++) {
+        for (int x = (int) lineaRecta.getStartPoint().x; x <= lineaRecta.getEndPoint().x; x++) {
+            for (int y = (int) lineaRecta.getStartPoint().y; y <= lineaRecta.getEndPoint().y; y++) {
                 double xDouble = (double) x;
                 double yDouble = (double) y;
 
                 if (lineaRecta.isPointOnLine(xDouble, yDouble)) {
                     selectedPoints.add(new Point(xDouble, yDouble));
+                    System.out.println("Punto seleccionado: " + xDouble + ", " + yDouble);
                 }
             }
         }

@@ -8,7 +8,9 @@ public class LineaRectaApp {
 
         Point startPoint = new Point(2, 1);
         Point endPoint = new Point(1300, 600);
+
         GUI gui = new GUI(startPoint, endPoint);
+        
         frame.add(gui);
 
         frame.setVisible(true);
