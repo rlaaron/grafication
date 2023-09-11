@@ -20,7 +20,7 @@ public class GUI extends JPanel {
         double decimal = lineaRecta.getSlope() - (int) lineaRecta.getSlope();
 
         selectedPoints.add(new Point(x, y));
-        
+
         while(x <= lineaRecta.getEndPoint().getX()){
             decimal += decimal;
 
@@ -42,9 +42,9 @@ public class GUI extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
 
         
-        g2d.setColor(Color.RED);
+        // g2d.setColor(Color.RED);
         
-        g2d.drawLine((int) lineaRecta.getStartPoint().getX(), 600 - (int) lineaRecta.getStartPoint().getY(), (int) lineaRecta.getEndPoint().getX(), 600 - (int) lineaRecta.getEndPoint().getY());
+        // g2d.drawLine((int) lineaRecta.getStartPoint().getX(), 600 - (int) lineaRecta.getStartPoint().getY(), (int) lineaRecta.getEndPoint().getX(), 600 - (int) lineaRecta.getEndPoint().getY());
         
         g2d.setColor(Color.BLACK);
         for (Point point : selectedPoints) {
