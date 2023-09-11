@@ -1,4 +1,4 @@
-class Point {
+public class Point {
   private double x;
   private double y;
 
@@ -18,3 +18,8 @@ class Point {
     return "(" + x + ", " + y + ")";
   }
 }
+//encapasulamiento
+//public
+//private
+//protect
+

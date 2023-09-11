@@ -1,10 +1,12 @@
-class LineaRecta {
+public class LineaRecta {
     private Point startPoint, endPoint;
-    private double m, b; //m = slope, b = ordinate to origin
+    private double m, b, dy, dx; //m = slope, b = ordinate to origin
 
     public LineaRecta(Point startPoint, Point endPoint) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
+
+
         calculateCoefficients();
     }
 
@@ -16,36 +18,50 @@ class LineaRecta {
 
     public Point getEndPoint() { return endPoint; }
 
+    // private void calculateM() {
+    //     this.m = (endPoint.getY() - startPoint.getY()) / (endPoint.getX() - startPoint.getX());
+    // }
+
     private void calculateM() {
-        this.m = (endPoint.getY() - startPoint.getY()) / (endPoint.getX() - startPoint.getX());
+        this.m = (dy) / (dx);
     }
 
     private void calculateB() {
         this.b = startPoint.getY() - m * startPoint.getX();
     }
 
-    private void calculateCoefficients() {
-        calculateM();
-        calculateB();
-    }
-
-
     public double functionValue(double x, double y) {
         return y - m * x - b;
     }
 
-
-    public boolean isPointOnLine(double x, double y) {
-        return functionValue(x, y) == 0;
+    private void getDy() {
+        dy = endPoint.getY() - startPoint.getY();
     }
 
-    public boolean isPointAboveLine(double x, double y) {
-        return functionValue(x, y) < 0;
+    private void getDx() {
+        dx = endPoint.getX() - startPoint.getX();
     }
 
-    public boolean isPointBelowLine(double x, double y) {
-        return functionValue(x, y) > 0;
+    private void calculateCoefficients() {
+        getDx();
+        getDy();
+        calculateM();
+        calculateB();
     }
+
+    
+
+
+    //dy = y2-y1
+    //dx = x2-x1
+    //para sacar los decimales se hace la division de dx/dy , 
+    //revisar si la suma de decimales es uno entonces se suma un pixel,
+    //para sumar un pixel se suma 1 en x
+
+
+
+
+ 
 }
 
 

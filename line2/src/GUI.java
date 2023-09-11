@@ -22,6 +22,7 @@ class GUI extends JPanel {
                 if (lineaRecta.isPointOnLine(xDouble, yDouble)) {
                     selectedPoints.add(new Point(xDouble, yDouble));
                     System.out.println("Punto seleccionado: " + xDouble + ", " + yDouble);
+                    break;
                 }
             }
         }
