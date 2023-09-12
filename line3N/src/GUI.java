@@ -10,30 +10,11 @@ public class GUI extends JPanel {
     public GUI(Point startPoint, Point endPoint) {
         lineaRecta = new LineaRecta(startPoint, endPoint);
         selectedPoints = new ArrayList<>();
-        evaluateCandidatePoints();
+        getCandidatePoints();
     }
 
-    private void evaluateCandidatePoints() {
-        double x =  lineaRecta.getStartPoint().getX();
-        double y =  lineaRecta.getStartPoint().getY();
-
-        double decimal = lineaRecta.getSlope() - (int) lineaRecta.getSlope();
-
-        selectedPoints.add(new Point(x, y));
-
-        while(x <= lineaRecta.getEndPoint().getX()){
-            decimal += decimal;
-
-            if(decimal >= 1){
-                selectedPoints.add(new Point(x, y));
-                x+=1;
-                decimal -= 1;
-            }
-
-            selectedPoints.add(new Point(x, y));
-            x++;
-            y++;
-        }
+    private void getCandidatePoints() {
+        selectedPoints = lineaRecta.getSelectedPoints();
     }
 
     @Override
@@ -48,7 +29,7 @@ public class GUI extends JPanel {
         
         g2d.setColor(Color.BLACK);
         for (Point point : selectedPoints) {
-            g2d.fillRect((int) point.getX(), 600 - (int) point.getY()  , 3, 3);
+            g2d.fillRect((int) point.getX(), 600 - (int) point.getY()  , 2, 2);
             
         }
 
