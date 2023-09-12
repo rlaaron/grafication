@@ -60,11 +60,13 @@ public class LineaRecta {
         double y =  startPoint.getY();
 
         double decimal = m - (int) m;
+        int integer = (int) m;
 
         selectedPoints.add(new Point(x, y));
 
         while(x <= endPoint.getX()){
             decimal += decimal;
+            // integer += integer;
 
             if(decimal >= 1){
                 selectedPoints.add(new Point(x, y));
@@ -74,6 +76,7 @@ public class LineaRecta {
 
             selectedPoints.add(new Point(x, y));
             x +=4;
+            // x += integer;
             y++;
         }
     }
