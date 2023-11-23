@@ -1,7 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.Scanner;
 
 class App extends JPanel implements ActionListener {
     // Declara el triangulo y los puntos
@@ -10,12 +9,9 @@ class App extends JPanel implements ActionListener {
     private Punto p3 = new Punto(150, 150, 1);
     private Punto p4 = new Punto(50, 150, 1);
     private Punto p5 = new Punto(300, 300, 10);
-    private Punto[] puntos = { p1, p2, p3, p4 };
     private int option;
 
-    private int Tx;
-    private int Ty;
-    private int Tz;
+
     // private int{} lines = {{},{},{}};
 
     public App() {

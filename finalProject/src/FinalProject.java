@@ -1,14 +1,7 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.util.List;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.*;
+import java.util.List;
 
 public class FinalProject extends JPanel implements ActionListener{
     List<Punto> points;
@@ -77,12 +70,14 @@ public class FinalProject extends JPanel implements ActionListener{
         super.paint(g);
         g.setColor(Color.RED);
         Punto externalPoint = new Punto(400,50,1);
+        int weight = 10;
 
         for(int i = 0; i < points.size(); i++){
             g.setColor(Color.RED);
             Punto p = points.get(i);
             // g.fillRect((int)p.x, (int)p.y, 5, 5);
-            g.fillOval((int)p.x-5, (int)p.y-5, 10, 10);
+            g.fillOval((int)p.x-5, (int)p.y-5, weight, weight);
+            g.fillOval(externalPoint.x-5, externalPoint.y-5, weight, weight);
 
             if(i == points.size() - 1){
                 // g.setColor(Color.BLUE);
