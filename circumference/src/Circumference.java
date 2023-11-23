@@ -1,16 +1,26 @@
-public class Circumference {
-    private Point center;
-    private double radius;
+public class Circumference extends Octant{
+    private Octant allPoints;
 
     public Circumference(Point center, double radius) {
-        this.center = center;
-        this.radius = radius;
+        super(center, radius);
+        this.calculatePoints();
+        this.modifyPointToDraw();
     }
 
-    public Point getCenter() { return this.center; }
-    public double getRadius() { return this.radius; }
+    public Octant getAllPoints() {
+        return allPoints;
+    }
 
-    public void setCenter(Point center) { this.center = center; }
-    public void setRadius(double radius) { this.radius = radius; }
+    public void calculatePoints() {
+        this.allPoints = super.getSimetycsOctans();
+    }
+   
+    public void modifyPointToDraw(){
+        for(Point p : this.allPoints.getPoints()){
+            p.setX(p.getX() + this.getCenter().getX());
+            p.setY(p.getY() + this.getCenter().getY());
+        }
+    } 
+    
     
 }
